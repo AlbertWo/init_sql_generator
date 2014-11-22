@@ -1,22 +1,70 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" type="text/css" href="resources/css/ext-all.css">
-		<script type="text/javascript" src="bootstrap.js"></script>
-		<script type="text/javascript" src="Ext-lang-zh_CN.js"></script>
-	</head>
-	<body>
-		<script type="text/javascript">
-			Ext.onReady(function(){
-				new Ext.Viewport({
-					layout: 'fit',
-					items: [{
-						xtype: 'panel',
-						title: '欢迎'
-					}]
-				})
-			});
-		</script>
-	</body>
+<head>
+    <title>示例6-1 使用Ext.query选择页面元素</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="resources/css/ext-all.css">
+	<script type="text/javascript" src="bootstrap.js"></script>
+	<script type="text/javascript" src="Ext-lang-zh_CN.js"></script>
+    <style type="text/css">
+    	/*在此添加样式代码*/
+    	body{padding:30px 0 0 30px;}
+    	h1{font-size:16px;font-weight:bold;line-height:40px;}
+    	table{ 
+    		font-size:14px;
+    		line-height:30px;
+    	}
+    	th{text-align:center;}
+    	.check{text-align:center;}
+    	.title{padding-left:10px;}
+    </style>
+</head>
+<body>	
+	<!--在此添加HTML代码-->
+	<h1>示例6-1 使用Ext.query选择页面元素</h1>
+	<table cellpadding="2" cellspacing="2" border="1">
+		<tr>
+			<th width="40"><input type="checkbox" id="selectAll" name="selectAll" value="全选"></th>
+			<th width="200">文章标题</th>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="1"></td>
+			<td class="title">文章标题1</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="2"></td>
+			<td class="title">文章标题2</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="3"></td>
+			<td class="title">文章标题3</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="4"></td>
+			<td class="title">文章标题4</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="5"></td>
+			<td class="title">文章标题5</td>
+		</tr>
+		<tr>
+			<td class="check"><input type="checkbox" name="articleId" value="6"></td>
+			<td class="title">文章标题6</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		Ext.onReady(function(){
+			if(Ext.BLANK_IMAGE_URL.substr(0,4)!="data"){				
+				Ext.BLANK_IMAGE_URL="./images/s.gif";
+			}
+			//在此添加ExtJS代码
+			Ext.fly("selectAll").on("click",function(e,el){
+				var els=Ext.query("input[name=articleId]");
+				for(var i=0;ln=els.length,i<ln;i++){
+					els[i].checked=el.checked;
+				}
+			})
+		});
+	</script>
+</body>
 </html>
