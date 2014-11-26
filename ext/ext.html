@@ -10,12 +10,17 @@
 		<script type="text/javascript">
 			Ext.onReady(function(){
 				new Ext.Viewport({
+					id: 'ab',
 					layout: 'fit',
 					items: [{
 						xtype: 'panel',
 						title: '欢迎'
 					}]
 				})
+
+				if(Ext.is.chrome){
+					console.log('chrome');
+				}
 			});
 		</script>
 	</body>
